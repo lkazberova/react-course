@@ -67,7 +67,7 @@ class Article extends React.Component {
         const selectText    = this.props.selected ? "deselect" : "select";
         return (
             <div>
-                <h3 onClick={this.handleClick.bind(this)}>{title}</h3>
+                <h3 onClick={this.handleClick.bind(this)}>{title} </h3>
                 <a href="#" onClick={this.select.bind(this)}>{selectText}</a>
                 {bodyElement}
             </div>
