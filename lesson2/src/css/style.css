@@ -1,0 +1,56 @@
+body {
+    font-size:100%;
+    line-height:1.5;
+    font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+}
+h3 {
+    display : inline;
+    cursor: pointer;
+    color: #404040;
+    -webkit-user-select: none;
+
+}
+
+a {
+    text-decoration: none;
+}
+ul.articles {
+    list-style-type: none;
+
+    width:50%;
+}
+ul.articles > li {
+    border: 1px dashed #ccc;
+    padding: 10px;
+    margin: 5px;
+    overflow: hidden;
+}
+ul.comments {
+    list-style-type: none;
+}
+a.comments {
+   float:right;
+}
+li.selected {
+    background-color: lemonchiffon;
+}
+
+blockquote {
+    /*background: #f9f9f9;*/
+    border-left: 5px solid #ccc;
+    margin: 7px;
+    padding: 0.5em 7px;
+    font-style: italic;
+    /*quotes: "\201C""\201D""\2018""\2019";*/
+}
+blockquote:before {
+    color: #ccc;
+    /*content: open-quote;*/
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+blockquote p {
+    display: inline;
+}
