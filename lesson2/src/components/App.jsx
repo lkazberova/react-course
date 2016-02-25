@@ -69,7 +69,7 @@ class Article extends React.Component {
             <div>
                 <h3 onClick={this.handleClick.bind(this)}>{title} </h3>
                 <a href="#" onClick={this.select.bind(this)}>{selectText}</a>
-                {bodyElement}
+                <div className="expandable" aria-expanded={this.props.showBody}>{bodyElement}</div>
             </div>
         )
     }
@@ -101,7 +101,6 @@ class BodyArticle extends React.Component {
             </div>
         );
     }
-
 }
 
 class CommentsArticle extends React.Component {

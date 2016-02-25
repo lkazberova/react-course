@@ -29,7 +29,7 @@ ul.comments {
     list-style-type: none;
 }
 a.comments {
-   float:right;
+   /*float:right;*/
 }
 li.selected {
     background-color: lemonchiffon;
@@ -53,4 +53,13 @@ blockquote:before {
 }
 blockquote p {
     display: inline;
+}
+
+.expandable {
+    transform: scaleY(0);
+    transform-origin: 20% 20%;
+    transition: transform 300ms ease-in-out;
+}
+.expandable[aria-expanded="true"] {
+    transform: scaleY(1);
 }
