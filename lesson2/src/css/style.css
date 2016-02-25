@@ -31,8 +31,13 @@ ul.comments {
 a.comments {
    /*float:right;*/
 }
+li {
+    background-color: white;
+    transition: background-color 500ms ease-in-out;
+}
 li.selected {
     background-color: lemonchiffon;
+    transition: background-color 500ms ease-in-out;
 }
 
 blockquote {
@@ -57,7 +62,7 @@ blockquote p {
 
 .expandable {
     transform: scaleY(0);
-    transform-origin: 20% 20%;
+    transform-origin: 50% 0%;
     transition: transform 300ms ease-in-out;
 }
 .expandable[aria-expanded="true"] {
