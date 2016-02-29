@@ -8,7 +8,7 @@ h3 {
     cursor: pointer;
     color: #404040;
     -webkit-user-select: none;
-
+    padding-right: 5px;
 }
 
 a {
@@ -30,6 +30,24 @@ ul.comments {
 }
 a.comments {
    /*float:right;*/
+}
+span.tooltip {
+    background-color: lightyellow;
+    width: 50%;
+    visibility: visible;
+    opacity: 0.9;
+    display:block;
+    position:absolute;
+    z-index: 10;
+    box-shadow: 1px 1px 2px rgba(55,55,55,.3);
+    margin-left: 20px;
+    transition: visibility 300ms, opacity 400ms linear;
+
+}
+span.hide {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 200ms, opacity 200ms linear;
 }
 li {
     background-color: white;
