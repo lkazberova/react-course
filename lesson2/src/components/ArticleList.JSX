@@ -11,7 +11,7 @@ class ArticleList extends React.Component {
         super();
         this.state = {
             selectedArticles: [],
-            showedArticle: null
+            showedArticle: 1
         }
     }
 

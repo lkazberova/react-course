@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ArticleDataList from './../data/Articles';
-import ArticleList from './ArticleList';
+import Container from './Container';
 
 class App extends Component {
     static propTypes = {
@@ -9,7 +9,7 @@ class App extends Component {
 
     render() {
         return (
-            <ArticleList articles={ArticleDataList}/>
+            <Container />
         );
     }
 }

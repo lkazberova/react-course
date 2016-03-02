@@ -4,7 +4,8 @@ import CommentsArticle from './CommentsArticle';
 class BodyArticle extends React.Component {
     static propTypes = {
         comments: React.PropTypes.array,
-        text: React.PropTypes.string
+        text: React.PropTypes.string,
+        addComment : React.PropTypes.func
     };
 
     constructor() {
@@ -12,11 +13,11 @@ class BodyArticle extends React.Component {
     }
 
     render() {
-        const {text, comments} = this.props;
+        const {text, comments, addComment} = this.props;
         return (
             <div>
                 <p>{text}</p>
-                <CommentsArticle comments={comments}/>
+                <CommentsArticle comments={comments} addComment={addComment}/>
             </div>
         );
     }
