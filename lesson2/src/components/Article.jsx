@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import BodyArticle from './BodyArticle';
 import toggleOpen from './HOC/toggleOpen';
 import toggleHint from './HOC/toggleHint';
+import {deleteArticle} from './actions/articles';
+import {addComment} from './actions/comments';
 
 class Article extends React.Component {
     static propTypes = {
@@ -24,7 +26,8 @@ class Article extends React.Component {
             <div>
                 {this.getTitle()}
                 {this.getHint()}
-                <a href="#" onClick={this.select.bind(this)}>{selectText}</a>
+                <a href="#" onClick={this.select.bind(this)}>{selectText} </a>
+                <a href="#" onClick = {this.deleteCurrentArticle} >delete</a>
                 <div className="expandable" aria-expanded={isOpen}>{this.getBody()}</div>
             </div>
         )
@@ -39,6 +42,13 @@ class Article extends React.Component {
             </span>
         );
     }
+    deleteCurrentArticle = () => {
+        deleteArticle(this.props.article.id);
+    };
+
+    addCommentToCurrentArticle = (commentText) => {
+        addComment(commentText, this.props.article.id);
+    };
 
     getTitle() {
         const { title} = this.props.article;
@@ -55,12 +65,13 @@ class Article extends React.Component {
     }
 
     getBody() {
-        const { body, comments } = this.props.article;
+        const article = this.props.article;
         if (!this.props.isOpen) return null;
 
-        return <BodyArticle text={body} comments={comments}/>;
+        return <BodyArticle text={article.body} comments={article.getRelation('comments').reverse()} addComment={this.addCommentToCurrentArticle}/>;
 
     }
+
 
     select(event) {
         event.preventDefault();

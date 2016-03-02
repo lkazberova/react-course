@@ -77,7 +77,29 @@ blockquote:before {
 blockquote p {
     display: inline;
 }
+div.comments_add {
+    margin-left: 40px;
+    margin-right: 14px;
+    padding: 10px;
 
+}
+div.comments_add > input {
+    width:100%;
+    /*height:25px;*/
+    border: none;
+    border-bottom: solid 2px #c9c9c9;
+    transition: border 0.3s;
+    /*font-family: sans-serif;*/
+    font-size: 18px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    font-family: inherit;
+
+}
+div.comments_add > input:focus, div.comments_add > input.focus {
+    border-bottom: solid 2px #969696;
+}
 .expandable {
     transform: scaleY(0);
     transform-origin: 50% 0%;

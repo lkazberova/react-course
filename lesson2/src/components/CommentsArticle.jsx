@@ -4,6 +4,7 @@ import toggleOpen from './HOC/toggleOpen';
 class CommentsArticle extends React.Component {
     static propTypes = {
         comments: React.PropTypes.array,
+        addComment : React.PropTypes.func,
 
         isOpen : React.PropTypes.bool,
         toggleOpen : React.PropTypes.func
@@ -11,15 +12,36 @@ class CommentsArticle extends React.Component {
 
     constructor() {
         super();
+
     }
 
     render() {
         return (
             <div>
                 {this.getCommentsLink()}
+                {this.getInputForAddingComments()}
                 <ul className="comments">{this.getComments()}</ul>
             </div>
         );
+    }
+
+    getInputForAddingComments() {
+        const {isOpen} = this.props;
+        if (!isOpen) return null;
+
+        return (
+            <div className="comments_add">
+                <input placeholder="Please type new comment ... "  onKeyPress={this.inputKeyPressHandler.bind(this)}/>
+            </div>
+        );
+
+    }
+    inputKeyPressHandler (event) {
+        if (event.key == "Enter") {
+            this.props.addComment(event.target.value);
+            // очищаем ввод
+            event.target.value = null;
+        }
     }
 
     getCommentsLink () {
