@@ -11,6 +11,7 @@ class CommentStore  extends SimpleStore{
             switch (type) {
                 case ADD_COMMENT :
                     let addedComment = this.add(comment);
+                    //да, менять объект экшина на ходу плохо
 
                     //чтобы было доступно  id добавленного коммента далее в цепочке, но мне кажется это грязновато ((
                     // я бы лучше завела ADDED_COMMENT дополнительно
