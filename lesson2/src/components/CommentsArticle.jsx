@@ -27,7 +27,7 @@ class CommentsArticle extends React.Component {
 
     getInputForAddingComments() {
         const {isOpen} = this.props;
-        if (!isOpen) return null;
+        if (!isOpen && this.commentsExist()) return null;
 
         return (
             <div className="comments_add">
@@ -38,6 +38,13 @@ class CommentsArticle extends React.Component {
     }
     inputKeyPressHandler (event) {
         if (event.key == "Enter") {
+
+
+            // если у нас первый коммент, то проверяем раскрыты ли комменты
+            if (!this.commentsExist() && !this.props.isOpen) {
+                this.props.toggleOpen();
+            }
+
             this.props.addComment(event.target.value);
             // очищаем ввод
             event.target.value = null;
